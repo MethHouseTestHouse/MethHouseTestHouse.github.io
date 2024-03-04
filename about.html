@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <title>The Test House Contact</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        /* Style the body */
+        body {
+          font-family: Arial, Helvetica, sans-serif;
+          margin: 0;
+        }
+
+        /* Header/logo Title */
+        .header {
+          padding: 80px;
+          text-align: center;
+          background: #3D527A;
+          color: white;
+        }
+
+        /* Font size of the heading */
+        .header h1 {
+          font-size: 40px;
+        }
+
+        /* Navbar */
+        .navbar {
+          overflow: hidden;
+          background-color: #2F5DBA;
+          position: sticky;
+          position: -webkit-sticky;
+          top: 0;
+        }
+
+        /* Style the navigation bar links */
+        .navbar a {
+          float: left;
+          display: block;
+          color: white;
+          text-align: center;
+          padding: 14px 20px;
+          text-decoration: none;
+        }
+
+
+        /* Right-aligned link */
+        .navbar a.right {
+          float: right;
+        }
+
+        /* Change color on hover */
+        .navbar a:hover {
+          background-color: #ddd;
+          color: black;
+        }
+
+        /* Active/current link */
+        .navbar a.active {
+          background-color: #0053FA;
+          color: white;
+        }
+
+        /* Column container */
+        .row { /* Nice */
+          display: -ms-flexbox; /* IE10 */
+          display: flex;
+          -ms-flex-wrap: wrap; /* IE10 */
+          flex-wrap: wrap;
+        }
+
+        /* Create two unequal columns that sits next to each other */
+        /* Sidebar/left column */
+        .side {
+          -ms-flex: 30%; /* IE10 */
+          flex: 30%;
+          background-color: #f1f1f1;
+          padding: 20px;
+          margin: 0 auto; /* Center the content */
+        }
+
+        /* Main column */
+        .main {
+          -ms-flex: 70%; /* IE10 */
+          flex: 70%;
+          background-color: white;
+          padding: 20px;
+        }
+
+        /* Fake image, just for this example */
+        .fakeimg {
+          background-color: #aaa;
+          width: 100%;
+          padding: 20px;
+        }
+
+        /* Footer */
+        .footer {
+          padding: 20px;
+          text-align: center;
+          background: #2F5DBA;
+          color: white;
+        }
+
+        /* Mobile layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 700px) {
+          .row {
+            flex-direction: column;
+          }
+        }
+
+        /* Mobile layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+        @media screen and (max-width: 400px) {
+          .navbar a {
+            float: none;
+            width: 100%;
+          }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>Contact Me</h1>
+    <p>Feel free to get in touch with me!</p>
+</div>
+
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="about.html" class="active">About</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html" >Contact</a>
+</div>
+
+<div class="row">
+    <div class="side">
+        <h2>About Me</h2>
+        <h3>Introduction</h3>
+        <p>My name is Jace and, I am a student at Dal AC, NS, Canada.</p>
+
+        <h3>Education:</h3>
+        <p>I am currently attending the Dalhousie University for a Bachelor's degree in Computer Science. Currently at Dalhousie,where Im currently developing  a solid foundation in programming languages such as HTML, CSS, and Java.</p>
+
+        <h3>Experience:</h3>
+        <p>That a work in progress.</p>
+
+        <h3>Skills Kinda:</h3>
+        <ul>
+            <li>HTML5</li>
+            <li>C</li>
+            <li>Java</li>
+            <li>🅕🅘🅛🅛🅔🅡</li>
+            <li>Responsive Web Design</li>
+            <li>₣łⱠⱠɆⱤ</li>
+        </ul>
+
+        <h3>Interests:</h3>
+        <p>Outside of School, I enjoy Archery, Video Game such as Arma 3, Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut elit vestibulum, fermentum dolor nec, vestibulum libero. Morbi venenatis mauris nec dui posuere, id scelerisque ipsum hendrerit. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin eget dui sit amet felis viverra interdum. Curabitur fermentum quam id elit commodo, ac ultricies purus faucibus. Integer sollicitudin auctor magna nec dignissim.</p>
+
+        <h3>Photo Gallery</h3>
+        <div class="fakeimg" style="height:200px;">Image 1</div>
+        <div class="fakeimg" style="height:200px;">Image 2</div>
+        <div class="fakeimg" style="height:200px;">Image 3</div>
+    </div>
+    <div class="main">
+        <h2>Contact Information</h2>
+        <p><strong>Email:</strong> caffeine.fiend.47@fakemail.ca</p>
+        <p><strong>Phone:</strong> +46-771-793-336</p>
+        <p><strong>Address:</strong> 975 Danforth Ave, Toronto, ON M4J 1M1, Canada</p>
+    </div>
+</div>
+
+<div class="footer">
+    <h2>Footer Filler</h2>
+    <p>&copy; <span id="year"></span> The Test House. NO rights reserved, enjoy.</p>
+</div>
+
+<script>
+    // JavaScript code to update the copyright year
+    document.getElementById("year").innerHTML = new Date().getFullYear();
+</script>
+
+</body>
+</html>

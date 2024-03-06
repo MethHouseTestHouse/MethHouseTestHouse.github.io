@@ -128,10 +128,9 @@
         /* Additional CSS styles for audio player */
         #audio-player-container {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
+            top: 20px; /* Adjust the top position */
+            left: 20px; /* Adjust the left position */
             width: 300px;
-            max-height: 60%;
             background-color: #f8f8f8;
             border: 1px solid #ddd;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
@@ -140,9 +139,14 @@
             overflow: auto;
         }
 
+        #audio-player-container audio {
+            width: 100%;
+        }
+
         #playlist {
             list-style-type: none;
             padding: 0;
+            margin-top: 10px;
         }
 
         #playlist li a {
@@ -150,6 +154,9 @@
             color: #333;
             display: block;
             padding: 5px 10px;
+            background-color: white; /* Background color for hyperlinks */
+            border: 1px solid #ddd; /* Border for hyperlinks */
+            margin-bottom: 5px; /* Spacing between hyperlinks */
         }
 
         #playlist li.active a {
@@ -169,6 +176,20 @@
     <a href="about.html">About</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html" >Contact</a>
+</div>
+
+<div id="audio-player-container">
+    <audio id="player" controls autoplay>
+        <source src="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <ul id="playlist">
+        <li class="active"><a href="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3">First Track</a></li>
+        <li><a href="http://deadbirdsociety.org/music/Moby - Next Is the E [Long Arms Mix].mp3">Second Track</a></li>
+        <li><a href="http://deadbirdsociety.org/music/John B - Midnight Air (2006 mix).mp3">Third Track</a></li>
+        <li><a href="http://deadbirdsociety.org/music/Thomas Dolby - Europa and the Pirate Twins.mp3">Fourth Track</a></li>
+        <!-- Add more tracks as needed -->
+    </ul>
 </div>
 
 <div class="row">
@@ -201,20 +222,6 @@
         <p>Some text.</p>
         <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
     </div>
-</div>
-
-<div id="audio-player-container">
-    <audio id="player" controls autoplay>
-        <source src="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <ul id="playlist">
-        <li class="active"><a href="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3">First Track</a></li>
-        <li><a href="http://deadbirdsociety.org/music/Moby - Next Is the E [Long Arms Mix].mp3">Second Track</a></li>
-        <li><a href="http://deadbirdsociety.org/music/John B - Midnight Air (2006 mix).mp3">Third Track</a></li>
-        <li><a href="http://deadbirdsociety.org/music/Thomas Dolby - Europa and the Pirate Twins.mp3">Fourth Track</a></li>
-        <!-- Add more tracks as needed -->
-    </ul>
 </div>
 
 <div class="footer">

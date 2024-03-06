@@ -110,27 +110,12 @@
           color: white;
         }
 
-        /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
-        @media screen and (max-width: 700px) {
-          .row {
-            flex-direction: column;
-          }
-        }
-
-        /* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
-        @media screen and (max-width: 400px) {
-          .navbar a {
-            float: none;
-            width: 100%;
-          }
-        }
-
         /* Additional CSS styles for audio player */
         #audio-player-container {
             position: fixed;
-            top: 20px; /* Adjust the top position */
-            left: 20px; /* Adjust the left position */
-            width: 300px;
+            top: 0;
+            left: 0;
+            width: 100%;
             background-color: #f8f8f8;
             border: 1px solid #ddd;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
@@ -268,5 +253,4 @@
 
 </body>
 </html>
-
 

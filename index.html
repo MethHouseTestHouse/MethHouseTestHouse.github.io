@@ -115,7 +115,8 @@
             position: fixed;
             top: 0;
             right: 0;
-            width: 250px;
+            width: 300px;
+            max-height: 60%;
             background-color: #f8f8f8;
             border: 1px solid #ddd;
             box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
@@ -124,14 +125,9 @@
             overflow: auto;
         }
 
-        #audio-player-container audio {
-            width: 100%;
-        }
-
         #playlist {
             list-style-type: none;
             padding: 0;
-            margin-top: 10px;
         }
 
         #playlist li a {
@@ -139,9 +135,6 @@
             color: #333;
             display: block;
             padding: 5px 10px;
-            background-color: white; /* Background color for hyperlinks */
-            border: 1px solid #ddd; /* Border for hyperlinks */
-            margin-bottom: 5px; /* Spacing between hyperlinks */
         }
 
         #playlist li.active a {

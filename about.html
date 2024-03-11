@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-CA">
 <head>
-    <title>The Test House Contact</title>
+    <title>The Test House About</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
@@ -9,13 +9,11 @@
           box-sizing: border-box;
         }
 
-        /* Style the body */
         body {
           font-family: Arial, Helvetica, sans-serif;
           margin: 0;
         }
 
-        /* Header/logo Title */
         .header {
           padding: 80px;
           text-align: center;
@@ -23,13 +21,11 @@
           color: white;
         }
 
-        /* Font size of the heading */
         .header h1 {
           font-size: 40px;
         }
 
-        /* Navbar */
-        .navbar {
+        nav {
           overflow: hidden;
           background-color: #2F5DBA;
           position: sticky;
@@ -37,8 +33,7 @@
           top: 0;
         }
 
-        /* Style the navigation bar links */
-        .navbar a {
+        nav a {
           float: left;
           display: block;
           color: white;
@@ -47,58 +42,45 @@
           text-decoration: none;
         }
 
-
-        /* Right-aligned link */
-        .navbar a.right {
+        nav a.right {
           float: right;
         }
 
-        /* Change color on hover */
-        .navbar a:hover {
+        nav a:hover {
           background-color: #ddd;
           color: black;
         }
 
-        /* Active/current link */
-        .navbar a.active {
+        nav a.active {
           background-color: #0053FA;
           color: white;
         }
 
-        /* Column container */
-        .row { /* Nice */
-          display: -ms-flexbox; /* IE10 */
+        .row {
           display: flex;
-          -ms-flex-wrap: wrap; /* IE10 */
           flex-wrap: wrap;
+          padding: 0 4px;
         }
 
-        /* Create two unequal columns that sits next to each other */
-        /* Sidebar/left column */
         .side {
-          -ms-flex: 30%; /* IE10 */
           flex: 30%;
           background-color: #f1f1f1;
           padding: 20px;
-          margin: 0 auto; /* Center the content */
+          margin: 0 auto;
         }
 
-        /* Main column */
         .main {
-          -ms-flex: 70%; /* IE10 */
           flex: 70%;
           background-color: white;
           padding: 20px;
         }
 
-        /* Fake image, just for this example */
         .fakeimg {
           background-color: #aaa;
           width: 100%;
           padding: 20px;
         }
 
-        /* Footer */
         .footer {
           padding: 20px;
           text-align: center;
@@ -106,16 +88,51 @@
           color: white;
         }
 
-        /* Mobile layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
+        #audio-player-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            max-height: 60%;
+            background-color: #2F5DBA;
+            color: white;
+            padding: 10px;
+            z-index: 1000;
+            overflow: auto;
+            border-radius: 10px;
+        }
+
+        #playlist {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #playlist li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #playlist li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #playlist li.active a {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
         @media screen and (max-width: 700px) {
           .row {
             flex-direction: column;
           }
         }
 
-        /* Mobile layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
         @media screen and (max-width: 400px) {
-          .navbar a {
+          nav a {
             float: none;
             width: 100%;
           }
@@ -125,16 +142,16 @@
 <body>
 
 <div class="header">
-    <h1>Contact Me</h1>
-    <p>Feel free to get in touch with me!</p>
+    <h1>About</h1>
+
 </div>
 
-<div class="navbar">
+<nav>
     <a href="index.html">Home</a>
     <a href="about.html" class="active">About</a>
     <a href="portfolio.html">Portfolio</a>
     <a href="contact.html" >Contact</a>
-</div>
+</nav>
 
 <div class="row">
     <div class="side">
@@ -179,9 +196,72 @@
     <p>&copy; <span id="year"></span> The Test House. NO rights reserved, enjoy.</p>
 </div>
 
+<div id="audio-player-container">
+    <audio id="player" controls autoplay>
+        <source src="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <ul id="playlist">
+        <li class="active"><a href="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3">First Track</a></li>
+        <li><a href="http://deadbirdsociety.org/music/Moby - Next Is the E [Long Arms Mix].mp3">Second Track</a></li>
+        <li><a href="http://deadbirdsociety.org/music/John B - Midnight Air (2006 mix).mp3">Third Track</a></li>
+        <li><a href="http://deadbirdsociety.org/music/Thomas Dolby - Europa and the Pirate Twins.mp3">Fourth Track</a></li>
+        <!-- Add more tracks as needed -->
+    </ul>
+</div>
+
 <script>
-    // JavaScript code to update the copyright year
-    document.getElementById("year").innerHTML = new Date().getFullYear();
+    document.addEventListener('DOMContentLoaded', function() {
+        var player = document.getElementById('player');
+        var playlist = document.getElementById('playlist');
+        var tracks = playlist.getElementsByTagName('a');
+        var currentTrack = 0;
+
+        // Function to play the selected track
+        function playTrack(track) {
+            player.src = track.getAttribute('href');
+            track.parentNode.classList.add('active');
+            player.play();
+        }
+
+        // Function to play the next track in the playlist
+        function playNext() {
+            currentTrack++;
+            if (currentTrack >= tracks.length) currentTrack = 0;
+            playTrack(tracks[currentTrack]);
+        }
+
+        // Add event listeners to the playlist links
+        for (var i = 0; i < tracks.length; i++) {
+            tracks[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                playTrack(this);
+            });
+        }
+
+        // Event listener to play the next track when the current one ends
+        player.addEventListener('ended', playNext);
+
+        // Set initial volume to user's system volume
+        player.volume = parseFloat(localStorage.getItem('volume')) || 0.5;
+
+        // Save volume to localStorage when it changes
+        player.addEventListener('volumechange', function() {
+            localStorage.setItem('volume', player.volume);
+        });
+
+        // Keep track of the last played track and resume from the same point
+        var lastPlayedTrack = localStorage.getItem('lastPlayedTrack');
+        if (lastPlayedTrack) {
+            for (var i = 0; i < tracks.length; i++) {
+                if (tracks[i].getAttribute('href') === lastPlayedTrack) {
+                    currentTrack = i;
+                    playTrack(tracks[currentTrack]);
+                    break;
+                }
+            }
+        }
+    });
 </script>
 
 </body>

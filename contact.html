@@ -104,6 +104,43 @@
           background: #2F5DBA;
           color: white;
         }
+        /* Additional CSS styles for audio player */
+        #audio-player-container {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 400px;
+            max-height: 75%;
+            background-color: #2F5DBA;
+            color: white;
+            padding: 10px;
+            z-index: 1000;
+            overflow: auto;
+            border-radius: 10px;
+        }
+
+        #playlist {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #playlist li a {
+            text-decoration: none;
+            color: white;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        #playlist li a:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        #playlist li.active a {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
 
         /* Responsive layout - when the screen is less than 700px wide, make the two columns stack on top of each other instead of next to each other */
         @media screen and (max-width: 700px) {
@@ -117,6 +154,8 @@
           .navbar a {
             float: none;
             width: 100%;
+
+
           }
         }
     </style>
@@ -139,7 +178,7 @@
     <div class="side">
 
         <h5>Photo of me:</h5>
-        <div class="fakeimg" style="height:200px;">Image</div>
+        <img class="image" src="https://media.discordapp.net/attachments/348221155372564502/1215327495658676304/IMG_20190716_2149083.jpg?ex=65fc58ee&is=65e9e3ee&hm=48ec66ebecb9edb2e33ff5b002355efd41879a7f31b33f76f9df6d6c58658afd&=&format=webp&width=353&height=471" alt="Photo of me">
         <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
         <h3>More Text</h3>
         <p>Lorem ipsum dolor sit ame.</p>
@@ -152,28 +191,84 @@
         <p><strong>Email:</strong> caffeine.fiend.47@fakemail.ca</p>
         <p><strong>Phone:</strong> +46-771-793-336</p>
         <p><strong>Address:</strong> 975 Danforth Ave, Toronto, ON M4J 1M1, Canada</p>
+        <p id="dateDisplay">Loading current date...</p>
+        <button type="Button" onclick="document.getElementByld('demo').innerHTML =Date()"> Click me to display Date and Time</button>
     </div>
 
     <div id="audio-player-container">
-    <audio id="player" controls autoplay>
-        <source src="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    <ul id="playlist">
-        <li class="active"><a href="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3">First Track</a></li>
-        <li><a href="http://deadbirdsociety.org/music/Moby - Next Is the E [Long Arms Mix].mp3">Second Track</a></li>
-        <li><a href="http://deadbirdsociety.org/music/John B - Midnight Air (2006 mix).mp3">Third Track</a></li>
-        <li><a href="http://deadbirdsociety.org/music/Thomas Dolby - Europa and the Pirate Twins.mp3">Fourth Track</a></li>
-        <!-- Add more tracks as needed -->
-    </ul>
-</div>
-    
+        <audio id="player" controls autoplay>
+            <source src="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        <ul id="playlist">
+            <li class="active"><a href="http://deadbirdsociety.org/music/Violent Storm Arcade Music 09 - We Are Free.mp3">First Track</a></li>
+            <li><a href="http://deadbirdsociety.org/music/Moby - Next Is the E [Long Arms Mix].mp3">Second Track</a></li>
+            <li><a href="http://deadbirdsociety.org/music/John B - Midnight Air (2006 mix).mp3">Third Track</a></li>
+            <li><a href="http://deadbirdsociety.org/music/Thomas Dolby - Europa and the Pirate Twins.mp3">Fourth Track</a></li>
+            <!-- Add more tracks as needed -->
+        </ul>
+    </div>
+
 </div>
 
 <div class="footer">
     <h2>Footer Filler</h2>
     <p>&copy; <span id="year"></span> The Test House. NO rights reserved, enjoy.</p>
 </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var player = document.getElementById('player');
+        var playlist = document.getElementById('playlist');
+        var tracks = playlist.getElementsByTagName('a');
+        var currentTrack = 0;
+
+        function playTrack(track) {
+            player.src = track.getAttribute('href');
+            track.parentNode.classList.add('active');
+            player.play();
+        }
+
+        function playNext() {
+            currentTrack++;
+            if (currentTrack >= tracks.length) currentTrack = 0;
+            playTrack(tracks[currentTrack]);
+        }
+
+        for (var i = 0; i < tracks.length; i++) {
+            tracks[i].addEventListener('click', function(e) {
+                e.preventDefault();
+                playTrack(this);
+            });
+        }
+
+        player.addEventListener('ended', playNext);
+
+    });
+</script>
+
+<!-- <script>
+    var name = prompt("Whats your name?");
+    alert("Hello, " + name +"!");
+</script> -->
+
+<!-- <script>
+    alert("This is a message box!");
+</script> -->
+
+<script>
+    var today = new Date();
+    var options = {
+        timeZone: 'America/Halifax', // Atlantic Standard Time
+        hour12: true, // Use 12-hour clock format
+        hour: 'numeric', // Display hours
+        minute: 'numeric', // Display minutes
+        second: 'numeric' // Display seconds
+    };
+    var timeString = today.toLocaleTimeString('en-CA', options);
+    var dateString = today.toDateString();
+    document.getElementById("dateDisplay").textContent = "Today's Date and time for me is " + dateString + " " + timeString;
+</script>
 
 <script>
     // JavaScript code to update the copyright year

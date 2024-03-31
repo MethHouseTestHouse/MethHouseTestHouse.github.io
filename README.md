@@ -8,7 +8,7 @@
 - **E-Mail:** methhousetesthouse@gmail.com
 
 
-The TestHouse is what I'm currently using for practice and test features in my free time for web dev
+The TestHouse is what I'm currently using for practice and testing features in my free time for web dev.
 
 
 ## Features
@@ -23,7 +23,7 @@ The TestHouse is what I'm currently using for practice and test features in my f
 
 
 ## Credit
- - **Adio PLayer:** Sourced from [down bad society](https://mrdbs.net/).
+ - **Audio Player:** Sourced from [down bad society](https://mrdbs.net/).
  - **Code:** Hobbled together by the author(ME).
 
 ## License

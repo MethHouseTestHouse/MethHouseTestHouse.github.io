@@ -248,19 +248,6 @@
         // Event listener to play the next track when the current one ends
         player.addEventListener('ended', playNext);
 
-        // Get the user's system volume and set it as the initial volume
-        navigator.mediaDevices.getUserMedia({ audio: true })
-            .then(function(stream) {
-                var audioContext = new AudioContext();
-                var source = audioContext.createMediaStreamSource(stream);
-                var gainNode = audioContext.createGain();
-                source.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                player.volume = gainNode.gain.value; // Set the player volume
-            })
-            .catch(function(err) {
-                console.error('Error accessing system volume:', err);
-            });
 
         // Save volume to localStorage when it changes
         player.addEventListener('volumechange', function() {

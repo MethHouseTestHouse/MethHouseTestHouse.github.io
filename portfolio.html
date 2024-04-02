@@ -199,18 +199,21 @@
         var tracks = playlist.getElementsByTagName('a');
         var currentTrack = 0;
 
+        // Function to play the selected track
         function playTrack(track) {
             player.src = track.getAttribute('href');
             track.parentNode.classList.add('active');
-            player.play();
+            // player.play(); // Remove this line to prevent autoplay
         }
 
+        // Function to play the next track in the playlist
         function playNext() {
             currentTrack++;
             if (currentTrack >= tracks.length) currentTrack = 0;
             playTrack(tracks[currentTrack]);
         }
 
+        // Add event listeners to the playlist links
         for (var i = 0; i < tracks.length; i++) {
             tracks[i].addEventListener('click', function(e) {
                 e.preventDefault();
@@ -218,8 +221,39 @@
             });
         }
 
+        // Event listener to play the next track when the current one ends
         player.addEventListener('ended', playNext);
 
+        // Get the user's system volume and set it as the initial volume
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function(stream) {
+                var audioContext = new AudioContext();
+                var source = audioContext.createMediaStreamSource(stream);
+                var gainNode = audioContext.createGain();
+                source.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                player.volume = gainNode.gain.value; // Set the player volume
+            })
+            .catch(function(err) {
+                console.error('Error accessing system volume:', err);
+            });
+
+        // Save volume to localStorage when it changes
+        player.addEventListener('volumechange', function() {
+            localStorage.setItem('volume', player.volume);
+        });
+
+        // Keep track of the last played track and resume from the same point
+        var lastPlayedTrack = localStorage.getItem('lastPlayedTrack');
+        if (lastPlayedTrack) {
+            for (var i = 0; i < tracks.length; i++) {
+                if (tracks[i].getAttribute('href') === lastPlayedTrack) {
+                    currentTrack = i;
+                    playTrack(tracks[currentTrack]);
+                    break;
+                }
+            }
+        }
     });
 </script>
 

@@ -223,7 +223,7 @@
         function playTrack(track) {
             player.src = track.getAttribute('href');
             track.parentNode.classList.add('active');
-            player.play();
+            // player.play(); // Remove this line to prevent autoplay
         }
 
         // Function to play the next track in the playlist
@@ -244,8 +244,19 @@
         // Event listener to play the next track when the current one ends
         player.addEventListener('ended', playNext);
 
-        // Set initial volume to user's system volume
-        player.volume = parseFloat(localStorage.getItem('volume')) || 0.5;
+        // Get the user's system volume and set it as the initial volume
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(function(stream) {
+                var audioContext = new AudioContext();
+                var source = audioContext.createMediaStreamSource(stream);
+                var gainNode = audioContext.createGain();
+                source.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+                player.volume = gainNode.gain.value; // Set the player volume
+            })
+            .catch(function(err) {
+                console.error('Error accessing system volume:', err);
+            });
 
         // Save volume to localStorage when it changes
         player.addEventListener('volumechange', function() {

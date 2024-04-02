@@ -202,11 +202,12 @@
         var currentTrack = 0;
 
         // Function to play the selected track
-        function playTrack(track) {
-            // Remove this line to prevent changing the source
-            // player.src = track.getAttribute('href');
+        function playTrack(track, autoPlay = true) {
+            player.src = track.getAttribute('href');
             track.parentNode.classList.add('active');
-            // player.play(); // Remove this line to prevent autoplay
+            if (autoPlay) {
+                player.play();
+            }
         }
 
         // Function to play the next track in the playlist
@@ -214,15 +215,13 @@
             currentTrack++;
             if (currentTrack >= tracks.length) currentTrack = 0;
             playTrack(tracks[currentTrack]);
-            // Play the next track
-            player.play();
         }
 
         // Add event listeners to the playlist links
         for (var i = 0; i < tracks.length; i++) {
             tracks[i].addEventListener('click', function(e) {
                 e.preventDefault();
-                playTrack(this);
+                playTrack(this, false); // Start playback manually
             });
         }
 

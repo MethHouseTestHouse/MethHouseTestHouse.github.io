@@ -225,7 +225,8 @@
 
         // Function to play the selected track
         function playTrack(track) {
-            player.src = track.getAttribute('href');
+            // Remove this line to prevent changing the source
+            // player.src = track.getAttribute('href');
             track.parentNode.classList.add('active');
             // player.play(); // Remove this line to prevent autoplay
         }
@@ -235,6 +236,8 @@
             currentTrack++;
             if (currentTrack >= tracks.length) currentTrack = 0;
             playTrack(tracks[currentTrack]);
+            // Play the next track
+            player.play();
         }
 
         // Add event listeners to the playlist links
@@ -247,7 +250,6 @@
 
         // Event listener to play the next track when the current one ends
         player.addEventListener('ended', playNext);
-
 
         // Save volume to localStorage when it changes
         player.addEventListener('volumechange', function() {

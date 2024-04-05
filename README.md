@@ -3,7 +3,7 @@
 [Lesses the pain](https://www.youtube.com/watch?v=ifLqzLEB3E0)
 
 ## Info
-- **Name:** Mikmaq
+- **Name:** Jace
 - **ID**: MethHouseTestHouse
 - **E-Mail:** methhousetesthouse@gmail.com
 
@@ -23,7 +23,7 @@ The TestHouse is what I'm currently using for practice and testing features in m
 
 
 ## Credit
- - **Audio Player:** Sourced from [down bad society](https://mrdbs.net/).
+ - **Audio Player:** Sourced from [down bad society](https://mrdbs.net/) butchered and modified by author(ME).
  - **Code:** Hobbled together by the author(ME).
 
 ## License

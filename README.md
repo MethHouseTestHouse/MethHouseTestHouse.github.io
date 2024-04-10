@@ -1,4 +1,4 @@
-# The Test House
+# Final Project: Personal portfolio
 
 [Lesses the pain](https://www.youtube.com/watch?v=ifLqzLEB3E0)
 
@@ -6,9 +6,10 @@
 - **Name:** Jace
 - **ID**: MethHouseTestHouse
 - **E-Mail:** methhousetesthouse@gmail.com
+- **Notes:** Please note that certain aspects of this website may not accurately reflect current information. This intentional omission is to ensure that specific personal details remain private and are not easily accessible.
 
 
-The TestHouse is what I'm currently using for practice and testing features in my free time for web dev.
+Tempary portfolio website.
 
 
 ## Features

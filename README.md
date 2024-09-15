@@ -6,10 +6,10 @@
 - **Name:** Jace
 - **ID**: MethHouseTestHouse
 - **E-Mail:** methhousetesthouse@gmail.com
-- **Notes:** Please note that certain aspects of this website may not accurately reflect current information. This intentional omission is to ensure that specific personal details remain private and are not easily accessible.
+- **Notes:** Please note that certain aspects of this website may not accurately reflect current information. This intentional omission ensures that specific personal details remain private and are not easily accessible.
 
 
-Tempary portfolio website.
+Tempary portfolio website and playground.
 
 
 ## Features

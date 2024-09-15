@@ -3,7 +3,7 @@
 [Lesses the pain](https://www.youtube.com/watch?v=ifLqzLEB3E0)
 
 ## Info
-- **Name:** Jace
+- **Name:** John Doe
 - **ID**: MethHouseTestHouse
 - **E-Mail:** methhousetesthouse@gmail.com
 - **Notes:** Please note that certain aspects of this website may not accurately reflect current information. This intentional omission ensures that specific personal details remain private and are not easily accessible.

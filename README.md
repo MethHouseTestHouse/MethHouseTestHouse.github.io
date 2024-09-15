@@ -24,7 +24,7 @@ Tempary portfolio website and playground.
 Tempary portfolio website.
 
 ## Credit
- - **Audio Player:** Sourced from ``[down bad society]``(https://mrdbs.net/) (They died) butchered and modified by author(ME).
+ - **Audio Player:** Sourced from [``down bad society``](https://mrdbs.net/) (They died) butchered and modified by author(ME).
  - **Code:** Hobbled together by the author(ME).
 
 ## License
